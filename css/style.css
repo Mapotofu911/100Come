@@ -1,0 +1,260 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+html, body{
+	height: 100%;
+	width: 100%;
+}
+#footer{
+	background-color: black;
+	position: fixed;
+	color: white;
+	line-height: 69px;
+	width: 100%;
+}
+
+
+#title a, h1{
+	color: white;
+}
+
+#title img{
+	margin-top: 5%;
+}
+
+#title img{
+	margin-left: 15%;
+}
+
+#title{
+	background-color: black;
+	height: 15%;
+}
+h1{
+	font-size: 30px;
+	display: inline-block;
+}
+
+#nav img{
+	height: 32px;
+	width: 32px;
+}
+
+.container{
+	max-width: 100%;
+	max-height: 100%;
+	margin-left: 0px;
+	margin-right: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+#logo{
+	height: 50%;
+}
+
+#contain{
+	height: 75%;
+}
+
+body{
+	height: 100%;
+	width: 100%;
+}
+
+#container{
+	height: 92.5%;
+	width: 100%;
+}
+
+#recherche{
+	width: 30%;
+	height: 30%;
+	margin-top: 8%;
+	margin-left: 50%;
+	display: inline-block;
+}
+
+#button{
+	height: 30%;
+	width: auto;
+	margin-bottom: 1%;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+#contain button:hover{
+	opacity: 0.7;
+}
+
+#contain button{
+	font-size: 15px;
+	text-shadow: 0.5px 0.5px black;
+	cursor: pointer;
+	text-align: center;
+}
+
+@-moz-document url-prefix() { 
+  #contain button {
+     display: inline-flex;
+  }
+}
+
+
+#Tutoriels , #Guides, #DocumentsTechniques
+{
+	margin-top: 5%;
+}
+
+#Tutoriels{
+	background-color: #A447A5;
+}
+
+#Guides{
+	background-color: #4AB6E7;
+}
+
+#DocumentsTechniques, #Informations	{
+	background-color: #FF8022;
+}
+
+#Outils{
+	background-color: #1CB34B;
+}
+
+#Informations img, #NotesDeVersion img{
+	padding-top 30px;
+}
+
+#contain img{
+	display:  -ms-flexbox;
+	display: -ms-inline-flex;
+}
+
+#Tutoriels, #Outils{
+	margin-left: 15%;
+}
+
+#ulOrange{
+	display: block;
+	background-color: #4AB4E9;
+	height: 20%;
+	width: 64%;
+	padding: 5px 25px ;
+	padding-top: 15px;
+	overflow: hidden;
+	list-style: none;
+	margin-top: 5%;
+	margin-left: 15%;
+}
+
+#ulOrange li{
+	width: 25%;
+	float: left;
+	padding: 1px;
+	margin: 0;
+	font: inherit;
+	font-size: 100%;
+	vertical-align: baseline;
+	color: black;
+}
+
+#ulOrange li a:hover{
+	background-color: #F16E00
+}
+
+#ulOrange li a{
+	background: #ffffff;
+	color: #000;
+	padding: 0;
+	display: table;
+	width: 100%;
+	text-align: center;
+	text-decoration: none;
+	height: 42px;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	font-family: "HelveticaNeueRegular", sans-serif;
+	cursor: pointer;
+}
+
+#ulOrange li a span{
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#foot{
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 940px;
+}
+
+#footer li{
+	float: left;
+	padding: 0 20px;
+	position: relative;
+	list-style: none;
+}
+
+#footer a{
+	color: white;
+	text-decoration: none;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+	cursor: pointer;
+}
+
+body{
+	margin-top: 0!important;
+	margin-left: 0!important;
+}
+
+#NotesDeVersion{
+	background-color: #A447A5;
+}
+
+#middleTitle{
+	color: black;
+	margin-top: 20px;
+	display: block;
+	margin-left: 10%;
+}
+
+#menuDeroulant{
+	margin-top: 5%;
+	margin-left: 40%;
+}
+
+.news-content{
+	color: white;
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+	z-index: 10;
+	width: 270px;
+}
+
+.Hide{
+	display: none;
+}

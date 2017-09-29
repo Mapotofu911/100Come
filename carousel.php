@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container" style="vertical-align: center;">
 
   <div style="display: inline-flex; margin-top: 10%;">
     <!-- PREMIERE CAROUSEL -->

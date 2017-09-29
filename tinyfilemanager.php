@@ -1172,16 +1172,16 @@ $all_files_size = 0;
 <input type="hidden" name="p" value="<?php echo fm_enc(FM_PATH) ?>">
 <input type="hidden" name="group" value="1">
 <table class="table"><thead><tr>
-<?php if (!FM_READONLY): ?><th style="width:3%"><label><input type="checkbox" title="<?php echo fm_t('Invert selection') ?>" onclick="checkbox_toggle()"></label></th><?php endif; ?>
-<th><?php echo fm_t('Name') ?></th><th style="width:10%"><?php echo fm_t('Size') ?></th>
-<th style="width:12%"><?php echo fm_t('Modified') ?></th>
+<?php if (!FM_READONLY): ?><!--<th style="width:3%"><label><input type="checkbox" title="<?php echo fm_t('Invert selection') ?>" onclick="checkbox_toggle()"></label></th>--><?php endif; ?>
+<th><?php echo fm_t('Nom') ?></th><th style="width:10%"><?php echo fm_t('Taille') ?></th>
+<th style="width:12%"><?php echo fm_t('Modifications') ?></th>
 <?php if (!FM_IS_WIN): ?><th style="width:6%"><?php echo fm_t('Perms') ?></th><th style="width:10%"><?php echo fm_t('Owner') ?></th><?php endif; ?>
-<th style="width:<?php if (!FM_READONLY): ?>13<?php else: ?>6.5<?php endif; ?>%">Actions</th></tr></thead>
+<th style="width:<?php if (!FM_READONLY): ?>13<?php else: ?>6.5<?php endif; ?>%">Télécharger</th></tr></thead>
 <?php
 // link to parent folder
 if ($parent !== false) {
     ?>
-<tr><?php if (!FM_READONLY): ?><td></td><?php endif; ?><td colspan="<?php echo !FM_IS_WIN ? '6' : '4' ?>"><a href="?p=<?php echo urlencode($parent) ?>"><i class="fa fa-chevron-circle-left"></i> ..</a></td></tr>
+<tr><?php if (!FM_READONLY): ?><?php endif; ?><td colspan="<?php echo !FM_IS_WIN ? '6' : '4' ?>"><a href="?p=<?php echo urlencode($parent) ?>"><i class="fa fa-chevron-circle-left"></i> ..</a></td></tr>
 <?php
 }
 foreach ($folders as $f) {
@@ -1198,7 +1198,7 @@ foreach ($folders as $f) {
     }
     ?>
 <tr>
-<?php if (!FM_READONLY): ?><td><label><input type="checkbox" name="file[]" value="<?php echo fm_enc($f) ?>"></label></td><?php endif; ?>
+<?php if (!FM_READONLY): ?><!--<td><label><input type="checkbox" name="file[]" value="<?php echo fm_enc($f) ?>"></label></td><?php endif; ?>-->
 <td><div class="filename"><a href="?p=<?php echo urlencode(trim(FM_PATH . '/' . $f, '/')) ?>"><i class="<?php echo $img ?>"></i> <?php echo fm_convert_win($f) ?></a><?php echo ($is_link ? ' &rarr; <i>' . readlink($path . '/' . $f) . '</i>' : '') ?></div></td>
 <td><?php echo fm_t('Folder') ?></td><td><?php echo $modif ?></td>
 <?php if (!FM_IS_WIN): ?>
@@ -1230,7 +1230,7 @@ foreach ($files as $f) {
     }
     ?>
 <tr>
-<?php if (!FM_READONLY): ?><td><label><input type="checkbox" name="file[]" value="<?php echo fm_enc($f) ?>"></label></td><?php endif; ?>
+<?php if (!FM_READONLY): ?><!--<td><label><input type="checkbox" name="file[]" value="<?php echo fm_enc($f) ?>"></label></td><?php endif; ?>-->
 <td><div class="filename"><a href="<?php echo $filelink ?>" title="<?php echo fm_t('File info') ?>"><i class="<?php echo $img ?>"></i> <?php echo fm_convert_win($f) ?></a><?php echo ($is_link ? ' &rarr; <i>' . readlink($path . '/' . $f) . '</i>' : '') ?></div></td>
 <td><span title="<?php printf(fm_t('%s bytes'), $filesize_raw) ?>"><?php echo $filesize ?></span></td>
 <td><?php echo $modif ?></td>
@@ -1253,10 +1253,10 @@ if (empty($folders) && empty($files)) {
 <?php
 } else {
     ?>
-<tr><?php if (!FM_READONLY): ?><td class="gray"></td><?php endif; ?><td class="gray" colspan="<?php echo !FM_IS_WIN ? '6' : '4' ?>">
-<?php echo fm_t('Full size:') ?> <span title="<?php printf(fm_t('%s bytes'), $all_files_size) ?>"><?php echo fm_get_filesize($all_files_size) ?></span>,
-<?php echo fm_t('files:') ?> <?php echo $num_files ?>,
-<?php echo fm_t('folders:') ?> <?php echo $num_folders ?>
+<tr><?php if (!FM_READONLY): ?><?php endif; ?><td class="gray" colspan="<?php echo !FM_IS_WIN ? '6' : '4' ?>">
+<?php echo fm_t('Taille du Dossier:') ?> <span title="<?php printf(fm_t('%s bytes'), $all_files_size) ?>"><?php echo fm_get_filesize($all_files_size) ?></span>,
+<?php echo fm_t('Fichiers:') ?> <?php echo $num_files ?>,
+<?php echo fm_t('Dossiers:') ?> <?php echo $num_folders ?>
 </td></tr>
 <?php
 }
@@ -1975,6 +1975,7 @@ function fm_show_nav_path($path)
         <?php
         $path = fm_clean_path($path);
         $root_url = "<a href='?p='><i class='fa fa-home' aria-hidden='true' title='" . FM_ROOT_PATH . "'></i></a>";
+        echo str_repeat('&nbsp;', 3).'<span style="color:orange">Dossier parent</span>';
         $sep = '<i class="fa fa-caret-right"></i>';
         if ($path != '') {
             $exploded = explode('/', $path);
@@ -1992,8 +1993,12 @@ function fm_show_nav_path($path)
         ?>
 
         <div class="float-right">
-        <?php if (!FM_READONLY): ?>
-        <a title="<?php echo fm_t('Search') ?>" href="javascript:showSearch('<?php echo urlencode(FM_PATH) ?>')"><i class="fa fa-search"></i></a>
+        <?php if (!FM_READONLY): 
+            echo '<span style="color:orange">Rechercher</span>';
+            echo  str_repeat('&nbsp;', 3);
+            ?>
+
+        <a title="<?php echo fm_t('Rechercher dans le dossier courant.') ?>" href="javascript:showSearch('<?php echo urlencode(FM_PATH) ?>')"><i class="fa fa-search" style="color: orange"></i></a>
         <!--<a title="<?php echo fm_t('Upload files') ?>" href="?p=<?php echo urlencode(FM_PATH) ?>&amp;upload"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a>-->
         <!--<a title="<?php echo fm_t('New folder') ?>" href="#createNewItem" ><i class="fa fa-plus-square"></i></a>-->
         <?php endif; ?>
@@ -2048,6 +2053,8 @@ a img{border:none}span{color:#777}small{font-size:11px;color:#999}p{margin-botto
 ul{margin-left:2em;margin-bottom:10px}ul{list-style-type:none;margin-left:0}ul li{padding:3px 0}
 table{border-collapse:collapse;border-spacing:0;margin-bottom:10px;width:100%}
 th,td{padding:4px 7px;text-align:left;vertical-align:top;border:1px solid #ddd;background:#fff;white-space:nowrap}
+
+
 th,td.gray{background-color:#eee}td.gray span{color:#222}
 tr:hover td{background-color:#f5f5f5}tr:hover td.gray{background-color:#eee}
 .table{width:100%;max-width:100%;margin-bottom:1rem}.table td,.table th{padding:.55rem;vertical-align:top;border-top:1px solid #ddd}.table thead th{vertical-align:bottom;border-bottom:2px solid #eceeef}.table tbody+tbody{border-top:2px solid #eceeef}.table .table{background-color:#fff}
@@ -2055,7 +2062,7 @@ code,pre{display:block;margin-bottom:10px;font:13px/16px Consolas,'Courier New',
 pre.with-hljs{padding:0} .hidden {display:none;}
 pre.with-hljs code{margin:0;border:0;overflow:visible}
 code.maxheight,pre.maxheight{max-height:512px}input[type="checkbox"]{margin:0;padding:0}
-.fa.fa-caret-right{font-size:1.2em;margin:0 4px;vertical-align:middle;color:#ececec}.fa.fa-home{font-size:1.2em;vertical-align:bottom;}
+.fa.fa-caret-right{font-size:1.2em;margin:0 4px;vertical-align:middle;color:#ececec}.fa.fa-home{color: orange; font-size:1.2em;vertical-align:bottom;}
 body {margin:0 30px;margin-top: 45px;}
 #wrapper{min-width:400px;margin:0 auto}
 .path{padding:4px 7px;border:1px solid #ddd;background-color:#fff;margin-bottom:10px}
@@ -2091,8 +2098,8 @@ li.folder:before, li.file:before{font: normal normal normal 14px/1 "FontAwesome"
     <div id="createNewItem" class="modalDialog"><div class="model-wrapper"><a href="#close" title="Close" class="close">X</a><h2>Create New Item</h2><p>
         <label for="newfile">Item Type &nbsp; : </label><input type="radio" name="newfile" id="newfile" value="file">File <input type="radio" name="newfile" value="folder" checked> Folder<br><label for="newfilename">Item Name : </label><input type="text" name="newfilename" id="newfilename" value=""><br><input type="submit" name="submit" class="group-btn" value="Create Now" onclick="newfolder('<?php echo fm_enc(FM_PATH) ?>');return false;"></p></div></div>
     <div id="searchResult" class="modalDialog"><div class="model-wrapper"><a href="#close" title="Close" class="close">X</a>
-    <input type="search" name="search" value="" placeholder="Find a item in current folder...">
-    <h2>Search Results</h2>
+    <input type="search" name="search" value="" placeholder="Trouver un fichier dans le dossier courant...">
+    <h2>Résultats de la recherche :</h2>
     <div id="searchresultWrapper"></div>
     </div></div>
 <?php

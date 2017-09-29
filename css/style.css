@@ -15,9 +15,11 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
 	vertical-align: baseline;
+	font-family:Helvetica neue 75 bold;
 }
+
+
 
 html, body{
 	height: 100%;
@@ -73,11 +75,7 @@ h1{
 
 #contain{
 	height: 75%;
-}
-
-body{
-	height: 100%;
-	width: 100%;
+	font-size: 80%;
 }
 
 #container{
@@ -106,7 +104,7 @@ body{
 }
 
 #contain button{
-	font-size: 15px;
+	font-size: 14px;
 	text-shadow: 0.5px 0.5px black;
 	cursor: pointer;
 	text-align: center;
@@ -164,6 +162,7 @@ body{
 	list-style: none;
 	margin-top: 5%;
 	margin-left: 15%;
+	font-size: 90%;
 }
 
 #ulOrange li{
@@ -206,7 +205,7 @@ body{
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
-	width: 940px;
+	width: 1000px;
 }
 
 #footer li{
@@ -243,7 +242,7 @@ body{
 
 #menuDeroulant{
 	margin-top: 5%;
-	margin-left: 40%;
+	margin-left: 15%;
 }
 
 .news-content{
@@ -257,4 +256,82 @@ body{
 
 .Hide{
 	display: none;
+}
+
+.Show{
+	display: block;
+}
+
+#monChat{
+	background: #F8F8F8;
+	border: 5px solid #CCC;
+	 border-color : orange;
+	width: 500px;
+	height: 400px;
+	position:absolute;
+	right: 1%; 
+	bottom: 5%;
+	margin:-25px 0 0 -50px;
+	border-radius:5px;
+	z-index: 1;
+}   
+
+/* Style The Dropdown Button */
+.dropbtn {
+    background-color: #FF8022;
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 160px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdownPlace {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+ .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/*dropsubmenu*/
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+
+.dropdown-toggle::after {
+    display:none
+}
+
+/*Dropdow Menu*/
+.parent {width: 25%;display: block;position: relative;float: left;line-height: 40px;background-color: #F0F0F0;border-right:#CCC 1px solid; margin: auto; text-align: center;}
+.parent a{margin: 10px;color: #F0F0F0;text-decoration: none; color: black;}
+.parent:hover > ul {display:block;position:absolute;}
+.child {display: none;}
+.child li {background-color: #E4EFF7;line-height: 30px;border-bottom:#CCC 1px solid;border-right:#CCC 1px solid; width:100%;}
+.child li a{color: #000000;}
+ul{list-style: none;margin: 0;padding: 0px; min-width:10em;}
+ul ul ul{left: 100%;top: 0;margin-left:1px;}
+li:hover {background-color: #95B4CA;}
+.parent li:hover {background-color: #F0F0F0;}
+.expand{font-size:12px;float:right;margin-right:5px;}
+
+.clr{
+    clear:both;
+    font-size:0;
 }

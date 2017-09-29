@@ -1,0 +1,40 @@
+#view_ajax {
+  display: block;
+  overflow: auto;
+  width: 90%; 
+  height: 300px; 
+  border: 1px solid #333;
+  margin: 0 auto;
+  margin-top: 5px;
+  background: white;
+}
+
+#ajaxForm{
+  display: block;
+  width: 100%; 
+  height: 50px;
+  margin-top: 5px;
+  margin: 0 auto;
+}
+
+#chatInput{
+  width: 84%;
+  height: 38px;
+  margin: 0 auto;
+  border: 1px solid #333;
+}
+
+*{font-family:Helvetica neue;}
+
+#btnSend {
+  padding: 5px 12px;
+  margin-top: 5px;
+  margin-left: 2px;
+  background-color: orange;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+}
